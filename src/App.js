@@ -4,10 +4,12 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Player from './components/Player';
 import HomePage from './components/HomePage';
+import UserProvider from './contexts/UserProvider';
 
 function App() {
   return (
   <>
+  <UserProvider>
   <BrowserRouter>
       <Routes>
         <Route path ="/" element= {<NavBar/>}>
@@ -21,6 +23,7 @@ function App() {
         </Route>
       </Routes>
    </BrowserRouter>
+   </UserProvider>
    </>
 
   );

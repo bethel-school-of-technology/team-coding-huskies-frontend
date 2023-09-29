@@ -53,7 +53,7 @@ const SignUp = () => {
             </Form.Group>
 
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" onClick={handleSubmit}>
               Sign Up
             </Button>
           </Form>
