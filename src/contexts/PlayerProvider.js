@@ -14,7 +14,17 @@ export const PlayerProvider = (props) => {
     }, []);
 
     function getAllPlayers() {
-        return axios.get(baseUrl).then(response => setPlayer(response.data));
+        // setPlayer([
+        //     {
+        //         id: 1,
+        //         title: "Podcast 1"
+        //     },
+        //     {
+        //         id: 2,
+        //         title: "Podcast 2"
+        //     },
+        // ])
+        //return axios.get(baseUrl).then(response => setPlayer(response.data));
     }
 
     function getPlayer(id) {
