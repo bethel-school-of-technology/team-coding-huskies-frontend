@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';
 import Player from './components/Player';
 import HomePage from './components/HomePage';
 import UserProvider from './contexts/UserProvider';
+import PodcastDetail from './components/PodcastDetail';
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           <Route path = "create-account" element = {<SignUp />} />
           {/* <Route path = "message/post" element = {<AddPost/>} />
           <Route path = "message/:_id/edit" element = {<EditPost/>}/> */}
-          <Route path = "player" element = {<HomePage/>} />
-          <Route path= "player/new" element={ <Player /> } />
+          <Route path = "podcast" element = {<PodcastDetail/>} />
+          <Route path= "podcast/new" element={ <Player /> } />
 
         </Route>
       </Routes>

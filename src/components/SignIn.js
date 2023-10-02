@@ -14,7 +14,7 @@ const SignIn = () => {
     event.preventDefault();
     signInUser(username, password)
       .then(() => {
-        navigate('player');
+        navigate('podcast');
       })
       .catch(error => {
         console.log(error);
@@ -48,7 +48,7 @@ const SignIn = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
+            <Button variant="primary" type="submit">
               Sign In
             </Button>
           </Form>

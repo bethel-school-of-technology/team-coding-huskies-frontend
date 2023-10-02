@@ -8,7 +8,7 @@ function NavBar() {
 
   return (
     <>
-      <Navbar bg="primary" data-bs-theme="dark">
+      <Navbar bg="primary" data-bs-theme="dark" >
         <Container>
           <Navbar.Brand href="/">PIHOP</Navbar.Brand>
           <Nav className="me-auto">
@@ -17,14 +17,14 @@ function NavBar() {
                 <Nav.Link as={Link} to="/logout" onClick={handleLogout}>
                   Logout
                 </Nav.Link>
-                <Nav.Link as={Link} to="/player">PodCast</Nav.Link>
+                <Nav.Link as={Link} to="/podcast">PodCast</Nav.Link>
                 <Nav.Link as={Link} to="/users/:id">Profile</Nav.Link>
               </>
             ) : (
               <>
                 <Nav.Link as={Link} to="/">Log In</Nav.Link>
                 <Nav.Link as={Link} to="/create-account">Create Account</Nav.Link>
-                <Nav.Link as={Link} to="/player">PodCast</Nav.Link>
+                <Nav.Link as={Link} to="/podcast">PodCast</Nav.Link>
               </>
             )}
           </Nav>
