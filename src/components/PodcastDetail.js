@@ -8,8 +8,9 @@ function PodcastDetail() {
     const handlePodcast = () => setAddPodcast(true);
     return ( 
         <div>
+          <img src="/images/logo.jpeg" height="200"/>
       <Card>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top"  />
           <Card.Body>
             <Card.Title>Podcast</Card.Title>
             <div   style={{ display: 'flex', justifyContent: 'flex-end' }}>

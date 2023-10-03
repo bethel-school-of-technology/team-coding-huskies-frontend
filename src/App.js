@@ -6,6 +6,7 @@ import Player from './components/Player';
 import HomePage from './components/HomePage';
 import UserProvider from './contexts/UserProvider';
 import PodcastDetail from './components/PodcastDetail';
+import PodcastComments from './components/PodcastComments';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path = "message/:_id/edit" element = {<EditPost/>}/> */}
           <Route path = "podcast" element = {<PodcastDetail/>} />
           <Route path= "podcast/new" element={ <Player /> } />
+          <Route path = "podcast/comments" element = {<PodcastComments/>} />
 
         </Route>
       </Routes>
