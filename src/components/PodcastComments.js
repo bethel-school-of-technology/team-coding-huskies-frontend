@@ -1,5 +1,8 @@
 import { Card, Button, ListGroup, Modal, Form } from "react-bootstrap";
+import podcasts from "../TestPodcastTable";
+
 function PodcastComments() {
+    let podcast = podcasts[0]( () => {
     return ( 
         <>
         <Card>
@@ -7,7 +10,7 @@ function PodcastComments() {
             <Card.Body>
                 <Card>
                     <Card.Body>
-                        insert podcast info here. 
+                    {podcast.podLink}
                     </Card.Body>
                 </Card>
                 <Form>
@@ -24,7 +27,7 @@ function PodcastComments() {
             </Card.Body>
         </Card>
         </>
-     );
+     )});
 }
 
 export default PodcastComments;
