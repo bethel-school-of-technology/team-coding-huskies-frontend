@@ -1,8 +1,16 @@
-import { Card, Button, ListGroup, Modal, Form } from "react-bootstrap";
+import React from "react";
+import { Card, Button, ListGroup, Modal, Form, CardTitle } from "react-bootstrap";
 import podcasts from "../TestPodcastTable";
 
+function fixRawBuzzLink(dirtyLink) {
+  if (typeof dirtyLink !== 'string') {
+    dirtyLink = String(dirtyLink);
+  }
+  let cleanLink = dirtyLink.replace(/"/g, "'");
+  return cleanLink;
+}
+
 function PodcastComments() {
-    let podcast = podcasts[0]( () => {
     return ( 
         <>
         <Card>
@@ -10,7 +18,8 @@ function PodcastComments() {
             <Card.Body>
                 <Card>
                     <Card.Body>
-                    {podcast.podLink}
+                    <CardTitle>{podcasts[0].title}</CardTitle>
+                    {podcasts[0].podLink}
                     </Card.Body>
                 </Card>
                 <Form>
@@ -27,7 +36,6 @@ function PodcastComments() {
             </Card.Body>
         </Card>
         </>
-     )});
-}
-
+     );
+    }
 export default PodcastComments;
