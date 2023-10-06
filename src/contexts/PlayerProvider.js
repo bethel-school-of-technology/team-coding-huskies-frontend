@@ -13,44 +13,52 @@ export const PlayerProvider = (props) => {
         fetchData();
     }, []);
 
-    function getAllPlayers() {
-        // setPlayer([
-        //     {
-        //         id: 1,
-        //         title: "Podcast 1"
-        //     },
-        //     {
-        //         id: 2,
-        //         title: "Podcast 2"
-        //     },
-        // ])
-        //return axios.get(baseUrl).then(response => setPlayer(response.data));
+    function getPodcast(id){
+        return axios.get(`http://localhost:3002/podcast/${id}`)
+        .then(response =>
+            new Promise((resolve) => resolve(response.data))
+        )
     }
-
-    function getPlayer(id) {
-        
+    function getAllPodcasts(){
+        return axios.get(`http://localhost:3002/podcast`)
+        .then(response =>
+            new Promise((resolve) => resolve(response.data))
+        )
     }
-
-    function addPlayer(player) {        
-
+    function deletePodcast(id){
+        axios.delete(`http://localhost:3002/podcasts/${id}`)
+        .then(refreshPodcats)
     }
-
-    function editPlayer(player) {
-
+    function addPodcast(podcast){
+        return axios.post("http://localhost:3002/podcasts", podcast)
+        .then(response => {
+            refreshPodcasts()
+            return new Promise((resolve) => resolve(response.data))
+        })
     }
-
-    function deletePlayer(id) {
-
+    function updatePodcast(podcast) {
+        return axios.put(`http://localhost:3002/podcasts/${podcast.id}`, podcast)
+        .then(response => {
+        refreshProducts()
+        return new Promise((resolve) => resolve(response.data))   
+        })
+    }
+    function refreshPodcasts(){
+        return axios.get("http://localhost:3002/podcasts")
+        .then(response => {
+            setProducts(response.data) 
+        })
     }
 
     return (
         <PlayerContext.Provider value={{
             player,
-            getAllPlayers,
-            getPlayer,
-            addPlayer,
-            editPlayer,
-            deletePlayer
+            getAllPodcasts,
+            getPodcast,
+            addPodcast,
+            updatePodcast,
+            deletePodcast,
+            refreshPodcasts
         }}>
             { props.children }
         </PlayerContext.Provider>
