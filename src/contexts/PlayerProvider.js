@@ -3,56 +3,68 @@ import { useEffect, useState } from "react";
 import PlayerContext from "./PlayerContext";
 
 export const PlayerProvider = (props) => {
+  const [podcasts, setPodcasts] = useState([]);
 
-    const [ player, setPlayer ] = useState([]);
-    const baseUrl = "http://localhost:3000/api/player/";
-    useEffect(() => {
-        async function fetchData() {
-            await getAllPlayers();
-        }
-        fetchData();
-    }, []);
-
-    function getAllPlayers() {
-        // setPlayer([
-        //     {
-        //         id: 1,
-        //         title: "Podcast 1"
-        //     },
-        //     {
-        //         id: 2,
-        //         title: "Podcast 2"
-        //     },
-        // ])
-        //return axios.get(baseUrl).then(response => setPlayer(response.data));
+  useEffect(() => {
+    async function fetchData() {
+      await refreshPodcasts();
     }
+    fetchData();
+  }, []);
 
-    function getPlayer(id) {
-        
-    }
+  async function getPodcast(id) {
+    const response = await axios
+          .get(`http://localhost:3003/podcast/${id}`);
+      return await new Promise((resolve) => resolve(response.data));
+  }
 
-    function addPlayer(player) {        
+  function getAllPodcasts() {
+    return axios
+      .get(`http://localhost:3003/podcast`)
+      .then((response) => new Promise((resolve) => resolve(response.data)));
+  }
 
-    }
+  function deletePodcast(id) {
+    axios.delete(`http://localhost:3003/podcasts/${id}`).then(refreshPodcasts);
+  }
 
-    function editPlayer(player) {
+  function newPodcast(podcast) {
+    return axios
+      .post("http://localhost:3003/podcasts", podcast)
+      .then((response) => {
+        refreshPodcasts();
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
 
-    }
+  function updatePodcast(podcast) {
+    return axios
+      .put(`http://localhost:3003/podcasts/${podcast.id}`, podcast)
+      .then((response) => {
+        refreshPodcasts();
+        return new Promise((resolve) => resolve(response.data));
+      });
+  }
 
-    function deletePlayer(id) {
+  function refreshPodcasts() {
+    return axios.get("http://localhost:3003/podcasts").then((response) => {
+      setPodcasts(response.data);
+    });
+  }
 
-    }
-
-    return (
-        <PlayerContext.Provider value={{
-            player,
-            getAllPlayers,
-            getPlayer,
-            addPlayer,
-            editPlayer,
-            deletePlayer
-        }}>
-            { props.children }
-        </PlayerContext.Provider>
-    )
+  return (
+    <PlayerContext.Provider
+      value={{
+        podcasts,
+        getAllPodcasts,
+        getPodcast,
+        newPodcast,
+        updatePodcast,
+        deletePodcast,
+        refreshPodcasts,
+      }}
+    >
+      {props.children}
+    </PlayerContext.Provider>
+  );
 };

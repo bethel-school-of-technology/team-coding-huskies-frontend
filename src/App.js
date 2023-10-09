@@ -7,11 +7,14 @@ import HomePage from './components/HomePage';
 import UserProvider from './contexts/UserProvider';
 import PodcastDetail from './components/PodcastDetail';
 import PodcastComments from './components/PodcastComments';
+import PodcastList from './components/PodcastList';
+import { PlayerProvider } from './contexts/PlayerProvider';
 
 function App() {
   return (
   <>
   <UserProvider>
+    <PlayerProvider>
   <BrowserRouter>
       <Routes>
         <Route path ="/" element= {<NavBar/>}>
@@ -19,13 +22,14 @@ function App() {
           <Route path = "create-account" element = {<SignUp />} />
           {/* <Route path = "message/post" element = {<AddPost/>} />
           <Route path = "message/:_id/edit" element = {<EditPost/>}/> */}
-          <Route path = "podcast" element = {<PodcastDetail/>} />
+          <Route path = "podcast" element = {<PodcastList/>} />
           <Route path= "podcast/new" element={ <Player /> } />
-          <Route path = "podcast/comments" element = {<PodcastComments/>} />
+          <Route path = "podcast/detail/:id" element = {<PodcastDetail/>} />
 
         </Route>
       </Routes>
    </BrowserRouter>
+   </PlayerProvider>
    </UserProvider>
    </>
 
