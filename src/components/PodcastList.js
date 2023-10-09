@@ -1,103 +1,130 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Card, Button, ListGroup, Modal, Form } from "react-bootstrap";
-import { Navigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import PlayerContext from "../contexts/PlayerContext";
 
 function PodcastList() {
-    const [podcastData, setPodcastData] = useState(' ');
-    const [addPodcast, setAddPodcast] = useState(false);
+  console.log("Podcast List rendered");
 
-    useEffect(() => {
-        async function getPodcast () {
-            const response = await axios.get("http://localhost:3001/podcasts/0")
-            setPodcastData(response.podcasts.title)
-        }
-    })
+  const [podcastData, setPodcastData] = useState({
+    id: null, // Initialize with null for new podcasts
+    title: "",
+    description: "",
+    podcastLink: "",
+  });
 
+  const { podcasts, newPodcast, updatePodcast } = useContext(PlayerContext);
+  const navigate = useNavigate();
 
-    const handleClose = () => setAddPodcast(false);
-    const handlePodcast = () => setAddPodcast(true);
+  const { id, title, description, podcastLink } = podcastData;
+  const [addPodcast, setAddPodcast] = useState(false);
 
-    const updatePodcastData = (newData) => {
-        setPodcastData(newData);
-    
+  const handlePodcast = () => setAddPodcast(true);
 
-    const handleSelectPodcast = (podcasts) => 
-        Navigate(`/podcast/${podcasts.id}`);
-    return ( 
-        <div>
-          <img src="/images/logo.jpeg" height="200"/>
+  function handleChange(event) {
+    setPodcastData((prevValue) => ({
+      ...prevValue,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  function addOrUpdate() {
+    if (id === null) {
+      newPodcast(podcastData)
+        .then((podcast) => {
+          navigate(`/podcast/detail/${podcast.id}`);
+          setAddPodcast(false); // Close the modal
+        });
+    } else {
+      updatePodcast(podcastData)
+        .then(() => {
+          navigate(`/podcast/detail/${id}`);
+          setAddPodcast(false); // Close the modal
+        });
+    }
+  }
+
+  const handleSelectPodcast = (podcast) => {
+    navigate(`/podcast/detail/${podcast.id}`);
+  };
+
+  return (
+    <div>
+      <img src="/images/logo.jpeg" height="200" />
       <Card>
-        <Card.Img variant="top"  />
-          <Card.Body>
-            <Card.Title>Podcast</Card.Title>
-            <div   style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button onClick={handlePodcast} variant="outline-success" 
-            style={{ width: '3rem', height: '3rem', position: 'left'}}
-            className='rounded-circle'
-            >+</Button>
-            </div>
-
-            <Modal show={addPodcast} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Add Podcast</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Form>
-                <Form.Group controlId="addingPodcast">
-                  <Form.Label>Enter PodCast</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Podcast Link Here"
-                    //  value={addPodcast}
-                    // onChange={e => setAddPodcast(e.target.value)}
-                  />
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Podcast Title Here"
-                    //  value={addPodcast}
-                    // onChange={e => setAddPodcast(e.target.value)}
-                  />
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Podcast Description"
-                    //  value={addPodcast}
-                    // onChange={e => setAddPodcast(e.target.value)}
-                  />
-                </Form.Group> 
-                
-                </Form>
-            
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
+      <Button
+                onClick={handlePodcast}
+                variant="outline-success"
+                style={{ width: '3rem', height: '3rem', position: 'top-right' }}
+                className='rounded-circle'
+              >
+                +
               </Button>
-              <Button variant="primary" onClick={handleClose}>
-                Save Changes
-              </Button>
-            </Modal.Footer>
-          </Modal>
-            <ListGroup>
-                {/* The JSON information will need to be entered here and each item needs to be conected 
-          by the id for the podcast which will link to the podcast Id. Will update route when
-          when getting clarification. */} 
-          {podcastData.map((podcast) => (
-    <ListGroup.Item
-    key={podcast.id}
-    onClick={() => handleSelectPodcast(podcast)}
-  >
-    {podcast.title}
-    </ListGroup.Item>
-  ))}
-          
+        {/* ... (Your Card content here) */}
+        <ListGroup>
+          {podcasts.map((podcast) => (
+            <ListGroup.Item
+              key={podcast.id}
+              onClick={() => handleSelectPodcast(podcast)}
+            >
+              {podcast.title}
+            </ListGroup.Item>
+          ))}
         </ListGroup>
-      </Card.Body>
-    </Card>
-        </div>
-     );
-}
+      </Card>
+      <Modal show={addPodcast} onHide={() => setAddPodcast(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Podcast</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={addOrUpdate}>
+            <Form.Group controlId="addingPodcast">
+              <Form.Label>Enter Podcast</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Podcast Link Here"
+                name="podcastLink"
+                value={podcastLink}
+                onChange={handleChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="Enter Podcast Title Here"
+                name="title"
+                value={title}
+                onChange={handleChange}
+              />
+              <Form.Control
+                type="text"
+                placeholder="Enter Podcast Description"
+                name="description"
+                value={description}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setAddPodcast(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={addOrUpdate}>
+            Save
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Button
+                onClick={handlePodcast}
+                variant="outline-success"
+                style={{ width: '3rem', height: '3rem', position: 'left' }}
+                className='rounded-circle'
+              >
+                +
+              </Button>
+    </div>
+  );
 }
 
 export default PodcastList;
+
+  

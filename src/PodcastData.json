@@ -1,10 +1,64 @@
 {
-    "podcasts":[
-            {
-            "id": 0,
-            "title": "La Sportiva Miura VS Climbing Shoes",
-            "description": "Shoes with an arc to help climb in tough places",
-            "podcastLink": "https://www.rei.com/media/82db734f-15a5-4c03-8559-21073723e416.jpg?size=784x588"
-            }
-    ]
+  "podcasts": [
+    {
+      "id": 0,
+      "title": "La Sportiva Miura VS Climbing Shoes",
+      "description": "Shoes with an arc to help climb in tough places",
+      "podcastLink": "https://www.rei.com/media/82db734f-15a5-4c03-8559-21073723e416.jpg?size=784x588"
+    },
+    {
+      "title": "fhdfg",
+      "description": "zsdf",
+      "podcastLink": "Hello",
+      "id": 1
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "podcastLink": "Hello",
+      "id": 2
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "podcastLink": "Hello",
+      "id": 3
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "podcastLink": "Hello",
+      "id": 4
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "podcastLink": "Hello",
+      "id": 5
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "podcastLink": "Hello",
+      "id": 6
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "podcastLink": "Hello",
+      "id": 7
+    },
+    {
+      "title": "test",
+      "description": "test",
+      "podcastLink": "Hello",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "title": "Here is the title",
+      "description": "This is awesome",
+      "podcastLink": "this is the link"
+    }
+  ]
 }

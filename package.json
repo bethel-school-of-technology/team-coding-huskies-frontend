@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock-server": "json-server src/PodcastData.json --port 3002"
+    "mock-server": "json-server src/PodcastData.json --port 3003"
   },
   "eslintConfig": {
     "extends": "react-app"

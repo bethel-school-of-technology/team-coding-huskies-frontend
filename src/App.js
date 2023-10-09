@@ -8,11 +8,13 @@ import UserProvider from './contexts/UserProvider';
 import PodcastDetail from './components/PodcastDetail';
 import PodcastComments from './components/PodcastComments';
 import PodcastList from './components/PodcastList';
+import { PlayerProvider } from './contexts/PlayerProvider';
 
 function App() {
   return (
   <>
   <UserProvider>
+    <PlayerProvider>
   <BrowserRouter>
       <Routes>
         <Route path ="/" element= {<NavBar/>}>
@@ -27,6 +29,7 @@ function App() {
         </Route>
       </Routes>
    </BrowserRouter>
+   </PlayerProvider>
    </UserProvider>
    </>
 
