@@ -14,6 +14,7 @@ function PodcastDetail() {
             <Card.Title>Selected PodCast</Card.Title>
             {/* insert player here */}
             {/*Instert description data */}
+            {/* TEST */}
             <Card.Subtitle>Description of the the Podcast</Card.Subtitle>
             <Button variant="primary">Play</Button>
             
