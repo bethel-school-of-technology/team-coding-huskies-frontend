@@ -51,23 +51,28 @@ function PodcastList() {
   return (
     <div>
       <img src="/images/logo.jpeg" height="200" />
-      <Card>
       <Button
                 onClick={handlePodcast}
-                variant="outline-success"
-                style={{ width: '3rem', height: '3rem', position: 'top-right' }}
+                variant="outline-dark"
+                style={{ width: '3rem', height: '3rem', position: 'right' }}
                 className='rounded-circle'
               >
                 +
               </Button>
-        {/* ... (Your Card content here) */}
+      <Card>
+      
+        {/* ... ( Card content goes here) */}
         <ListGroup>
           {podcasts.map((podcast) => (
-            <ListGroup.Item
-              key={podcast.id}
-              onClick={() => handleSelectPodcast(podcast)}
-            >
-              {podcast.title}
+            <ListGroup.Item >
+            <Card>
+              <h5>{podcast.title}</h5>
+              {podcast.description}
+                <Button key={podcast.id}
+                onClick={() => handleSelectPodcast(podcast)}
+                style={{ width: '10rem', height: '3rem', position: 'right' }}
+                >Go to Podcast</Button>
+                </Card>
             </ListGroup.Item>
           ))}
         </ListGroup>
@@ -113,14 +118,7 @@ function PodcastList() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Button
-                onClick={handlePodcast}
-                variant="outline-success"
-                style={{ width: '3rem', height: '3rem', position: 'left' }}
-                className='rounded-circle'
-              >
-                +
-              </Button>
+
     </div>
   );
 }
