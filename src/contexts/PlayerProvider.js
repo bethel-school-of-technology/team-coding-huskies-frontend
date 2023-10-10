@@ -14,13 +14,13 @@ export const PlayerProvider = (props) => {
 
   async function getPodcast(id) {
     const response = await axios
-          .get(`http://localhost:3003/podcast/${id}`);
+          .get(`http://localhost:3003/podcasts/${id}`);
       return await new Promise((resolve) => resolve(response.data));
   }
 
   function getAllPodcasts() {
     return axios
-      .get(`http://localhost:3003/podcast`)
+      .get(`http://localhost:3003/podcasts`)
       .then((response) => new Promise((resolve) => resolve(response.data)));
   }
 
