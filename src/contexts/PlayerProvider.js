@@ -14,23 +14,23 @@ export const PlayerProvider = (props) => {
 
   async function getPodcast(id) {
     const response = await axios
-          .get(`http://localhost:3003/podcasts/${id}`);
+          .get(`http://localhost:5020/api/Buzz/${id}`);
       return await new Promise((resolve) => resolve(response.data));
   }
 
   function getAllPodcasts() {
     return axios
-      .get(`http://localhost:3003/podcasts`)
+      .get(`http://localhost:5020/api/Buzz/`)
       .then((response) => new Promise((resolve) => resolve(response.data)));
   }
 
   function deletePodcast(id) {
-    axios.delete(`http://localhost:3003/podcasts/${id}`).then(refreshPodcasts);
+    axios.delete(`http://localhost:5020/api/Buzz${id}`).then(refreshPodcasts);
   }
 
   function newPodcast(podcast) {
     return axios
-      .post("http://localhost:3003/podcasts", podcast)
+      .post(`http://localhost:5020/api/Buzz/`, podcast)
       .then((response) => {
         refreshPodcasts();
         return new Promise((resolve) => resolve(response.data));
@@ -39,7 +39,7 @@ export const PlayerProvider = (props) => {
 
   function updatePodcast(podcast) {
     return axios
-      .put(`http://localhost:3003/podcasts/${podcast.id}`, podcast)
+      .put(`http://localhost:5020/api/Buzz/${podcast.id}`, podcast)
       .then((response) => {
         refreshPodcasts();
         return new Promise((resolve) => resolve(response.data));
@@ -47,7 +47,7 @@ export const PlayerProvider = (props) => {
   }
 
   function refreshPodcasts() {
-    return axios.get("http://localhost:3003/podcasts").then((response) => {
+    return axios.get("http://localhost:5020/api/Buzz/").then((response) => {
       setPodcasts(response.data);
     });
   }

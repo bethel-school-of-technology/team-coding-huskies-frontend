@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 
  function UserProvider(props) {
-  const baseUrl = "http://localhost:3000/api/users/";
+  const baseUrl = "http://localhost:5020/api/Profile/";
   const [users, setUsers] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('myPodcastToken'));
   useEffect(() => {
