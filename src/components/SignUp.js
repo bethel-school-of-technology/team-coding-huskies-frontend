@@ -22,12 +22,13 @@ const SignUp = () => {
 
     return (
         <div>
+        <img src="/images/logo.jpeg" height="200" position="left" />
         <Card>
         <Card.Body>
           <Card.Title>REGISTER</Card.Title>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername">
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter Email"
