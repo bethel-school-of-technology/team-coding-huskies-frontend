@@ -1,3 +1,7 @@
 body {
     padding: 30px;
 }
+.rounded-circle {
+    align-items: end;
+
+}

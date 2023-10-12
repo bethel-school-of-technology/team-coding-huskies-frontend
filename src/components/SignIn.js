@@ -24,6 +24,7 @@ const SignIn = () => {
 
   return (
     <div>
+        
           <img src="/images/logo.jpeg" height="200"/>
       <Card>
         <Card.Body>
