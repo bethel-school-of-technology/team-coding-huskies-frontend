@@ -8,9 +8,11 @@ function NavBar() {
 
   return (
     <>
-      <Navbar bg="primary" data-bs-theme="dark" >
+      <Navbar className='color-nav shadow-md mb-3' variant='dark' expand="lg" >
         <Container>
+        <img className='pihop_logo' src="/images/logo.jpeg" alt='pihop.logo'/>
           <Navbar.Brand href="/">PIHOP</Navbar.Brand>
+          
           <Nav className="me-auto">
             {isAuthenticated ? (
               <>

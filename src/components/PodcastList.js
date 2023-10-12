@@ -70,7 +70,7 @@ function PodcastList() {
               {podcast.description}
                 <Button key={podcast.id}
                 onClick={() => handleSelectPodcast(podcast)}
-                style={{ width: '10rem', height: '3rem', position: 'right' }}
+                style={{ width: '10rem', height: '3rem', position: 'right' }} className="button-color"
                 >Go to Podcast</Button>
                 </Card>
             </ListGroup.Item>
