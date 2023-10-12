@@ -1,7 +1,20 @@
-body {
+/* body {
     padding: 30px;
-}
+} */
 .rounded-circle {
     align-items: end;
 
+}
+.pihop_logo {
+    height: 1.5rem;
+    
+ }
+ *{
+    box-sizing: border-box;
+ }
+ .color-nav{
+    background-color: blue;
+}
+.button-color{
+    background-color: blue;
 }
