@@ -13,7 +13,7 @@ const SignUp = () => {
     function handleSubmit(event) {
         event.preventDefault();
         createUser(username, password, email).then(() => {
-            navigate('/signin');
+            navigate('/');
         }).catch(error => {
             console.log(error);
             window.alert('Failed registration: error creating user');

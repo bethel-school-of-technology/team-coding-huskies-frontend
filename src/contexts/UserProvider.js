@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 
  function UserProvider(props) {
-  const baseUrl = "http://localhost:3003";
+  const baseUrl = "http://localhost:5020";
   const [users, setUsers] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('myPodcastToken'));
   useEffect(() => {
@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 
   async function getAllUsers() {
     try {
-      const response = await axios.get(`${baseUrl}/users`);
+      const response = await axios.get(`${baseUrl}/api/Profile`);
       setUsers(response.data);
     } catch (error) {
       console.error('Failed to fetch users:', error);
@@ -23,7 +23,7 @@ import { useEffect, useState } from 'react';
   async function createUser(username, password, email) {
     try {
       const user = { username, password, email };
-      const response = await axios.post(`${baseUrl}/users`, user);
+      const response = await axios.post(`${baseUrl}/api/Profile`, user);
       return response.data;
     } catch (error) {
       console.error('Failed to create user:', error);
@@ -33,9 +33,9 @@ import { useEffect, useState } from 'react';
 
   async function signInUser(email, password) {
     try {
-      const user = {password, email };
-      const response = await axios.post(`${baseUrl}/login`, user);
-      localStorage.setItem('myPodcastToken', response.data.accessToken);
+      const user = {password, email};
+      const response = await axios.get(`${baseUrl}/api/Profile/login`, user);
+      localStorage.setItem('myPodcastToken', response.data);
       setIsAuthenticated(true);
       return response.data;
     } catch (error) {
@@ -56,7 +56,7 @@ import { useEffect, useState } from 'react';
         Authorization: `Bearer ${localStorage.getItem('myPodcastToken')}`
       };
     //   var test =  users._id;
-      const response = await axios.get(`${baseUrl}/users/${id}`, { headers: myHeaders });
+      const response = await axios.get(`${baseUrl}/api/Profile/login${id}`, { headers: myHeaders });
       return response.data;
     } catch (error) {
       console.error('Failed to get user:', error);
