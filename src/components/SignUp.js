@@ -5,14 +5,14 @@ import { Button, Card, Form } from 'react-bootstrap';
 const SignUp = () => {
     const [username, setUsername] = useState(" ");
     const [password, setPassword] = useState (" ");
-    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
 
     let { createUser } = useContext(UserContext);
     let navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
-        createUser(username,password).then(() => {
+        createUser(username, password, email).then(() => {
             navigate('/signin');
         }).catch(error => {
             console.log(error);
@@ -32,8 +32,8 @@ const SignUp = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter Email"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
             </Form.Group>
 
@@ -47,10 +47,10 @@ const SignUp = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter Name"   value={name}
-                onChange={e => setName(e.target.value)}/>
+            <Form.Group controlId="formusername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control type="text" placeholder="Enter Username"   value={username}
+                onChange={e => setUsername(e.target.value)}/>
             </Form.Group>
 
 

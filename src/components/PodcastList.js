@@ -2,10 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import { Card, Button, ListGroup, Modal, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import PlayerContext from "../contexts/PlayerContext";
+import UserContext from "../contexts/UserContext";
 
 function PodcastList() {
   console.log("Podcast List rendered");
-
+  const { isAuthenticated } = useContext(UserContext);
   const [podcastData, setPodcastData] = useState({
     id: null, // Initialize with null for new podcasts
     title: "",
@@ -51,7 +52,9 @@ function PodcastList() {
   return (
     <div>
       <img src="/images/logo.jpeg" height="200" />
-      <Button
+      {isAuthenticated ? (
+      <>
+       <Button
                 onClick={handlePodcast}
                 variant="outline-dark"
                 style={{ width: '3rem', height: '3rem', position: 'right' }}
@@ -59,6 +62,11 @@ function PodcastList() {
               >
                 +
               </Button>
+              </>
+      ) : (
+        <></>
+      )
+   }
       <Card>
       
         {/* ... ( Card content goes here) */}
