@@ -19,8 +19,6 @@ function App() {
         <Route path ="/" element= {<NavBar/>}>
           <Route index element= {<SignIn />}/>
           <Route path = "create-account" element = {<SignUp />} />
-          {/* <Route path = "message/post" element = {<AddPost/>} />
-          <Route path = "message/:_id/edit" element = {<EditPost/>}/> */}
           <Route path = "podcast" element = {<PodcastList/>} />
           <Route path= "podcast/new" element={ <Player /> } />
           <Route path = "podcast/detail/:id" element = {<PodcastDetail/>} />
