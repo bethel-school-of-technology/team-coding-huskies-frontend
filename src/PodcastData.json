@@ -5,6 +5,12 @@
       "password": "$2a$10$mzwCZsvXpIFou15tKjkucuYRpBTeCRH73OQ26l9.T3U56TZQUXpPK",
       "username": "Jake",
       "id": 1
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$3.2107dTTAO3zdOjrU8JDessDO/tfceklfTj.0FDH4b30rxUWRfT.",
+      "username": " test",
+      "id": 2
     }
   ],
   "podcasts": [
