@@ -6,13 +6,14 @@ import UserContext from '../contexts/UserContext';
 const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
   let { signInUser } = useContext(UserContext);
   let navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
-    signInUser(username, password)
+    signInUser(email, password)
       .then(() => {
         navigate('podcast');
       })
@@ -47,6 +48,14 @@ const SignIn = () => {
                 placeholder="Enter password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+              />
+            </Form.Group> <Form.Group controlId="formPassword">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
             </Form.Group>
 

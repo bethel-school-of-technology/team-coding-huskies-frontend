@@ -1,4 +1,12 @@
 {
+  "users": [
+    {
+      "email": "gjaycob7@gmail.com",
+      "password": "$2a$10$mzwCZsvXpIFou15tKjkucuYRpBTeCRH73OQ26l9.T3U56TZQUXpPK",
+      "username": "Jake",
+      "id": 1
+    }
+  ],
   "podcasts": [
     {
       "id": 0,
@@ -77,6 +85,30 @@
       "title": "Wife Reviews",
       "description": "Scott reads reviews to his wife. ",
       "podcastLink": "https://www.buzzsprout.com/816643/13630334-scott-reads-reviews-to-his-wife-during-the-great-far-aim-podcast-break-of-2023-1?client_source=small_player&iframe=true\""
+    },
+    {
+      "id": 15,
+      "title": "sfsdf",
+      "description": "sdfds",
+      "podcastLink": "Hello"
+    },
+    {
+      "id": 16,
+      "title": "PIHOP Teaching",
+      "description": "description",
+      "podcastLink": "pihop link"
+    },
+    {
+      "id": 17,
+      "title": "asdf",
+      "description": "asdf",
+      "podcastLink": "asdf"
+    },
+    {
+      "id": 18,
+      "title": "asdf",
+      "description": "asdf",
+      "podcastLink": "asdf"
     }
   ]
 }

@@ -25,12 +25,20 @@ export const PlayerProvider = (props) => {
   }
 
   function deletePodcast(id) {
-    axios.delete(`http://localhost:3003/podcasts/${id}`).then(refreshPodcasts);
+    let token = localStorage.getItem('myPodcastToken');
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+  };
+    axios.delete(`http://localhost:3003/podcasts/${id}`, config).then(refreshPodcasts);
   }
 
   function newPodcast(podcast) {
+    let token = localStorage.getItem('myPodcastToken');
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+  };
     return axios
-      .post("http://localhost:3003/podcasts", podcast)
+      .post("http://localhost:3003/podcasts", podcast, config)
       .then((response) => {
         refreshPodcasts();
         return new Promise((resolve) => resolve(response.data));
@@ -38,8 +46,12 @@ export const PlayerProvider = (props) => {
   }
 
   function updatePodcast(podcast) {
+    let token = localStorage.getItem('myPodcastToken');
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+  };
     return axios
-      .put(`http://localhost:3003/podcasts/${podcast.id}`, podcast)
+      .put(`http://localhost:3003/podcasts/${podcast.id}`, podcast, config)
       .then((response) => {
         refreshPodcasts();
         return new Promise((resolve) => resolve(response.data));
