@@ -20,7 +20,7 @@ export const PlayerProvider = (props) => {
 
   function getAllPodcasts() {
     return axios
-      .get(`http://localhost:3003/podcasts`)
+      .get(`http://localhost:5020/api/Buzz`)
       .then((response) => new Promise((resolve) => resolve(response.data)));
   }
 
@@ -32,13 +32,13 @@ export const PlayerProvider = (props) => {
     axios.delete(`http://localhost:3003/podcasts/${id}`, config).then(refreshPodcasts);
   }
 
-  function newPodcast(podcast) {
+  function newPodcast(podcast, id) {
     let token = localStorage.getItem('myPodcastToken');
     const config = {
       headers: { Authorization: `Bearer ${token}` }
   };
     return axios
-      .post("http://localhost:3003/podcasts", podcast, config)
+      .post(`http://localhost:5020/api/Buzz/${id}`, podcast, config)
       .then((response) => {
         refreshPodcasts();
         return new Promise((resolve) => resolve(response.data));

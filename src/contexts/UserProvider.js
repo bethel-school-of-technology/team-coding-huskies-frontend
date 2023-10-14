@@ -34,7 +34,7 @@ import { useEffect, useState } from 'react';
   async function signInUser(email, password) {
     try {
       const user = {password, email};
-      const response = await axios.get(`${baseUrl}/api/Profile/login`, user);
+      const response = await axios.get(`${baseUrl}/api/Profile`, user);
       localStorage.setItem('myPodcastToken', response.data);
       setIsAuthenticated(true);
       return response.data;
@@ -50,13 +50,13 @@ import { useEffect, useState } from 'react';
     window.location.href = '/';
   }
 
-  async function getUser(id) {
+  async function getUser(profileId) {
     try {
       const myHeaders = {
         Authorization: `Bearer ${localStorage.getItem('myPodcastToken')}`
       };
     //   var test =  users._id;
-      const response = await axios.get(`${baseUrl}/api/Profile/login${id}`, { headers: myHeaders });
+      const response = await axios.get(`${baseUrl}/api/Profile/login/${profileId}`, { headers: myHeaders });
       return response.data;
     } catch (error) {
       console.error('Failed to get user:', error);
