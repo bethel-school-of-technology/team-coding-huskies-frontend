@@ -20,13 +20,13 @@ function NavBar() {
                   Logout
                 </Nav.Link>
                 <Nav.Link as={Link} to="/podcast">PodCast</Nav.Link>
-                <Nav.Link as={Link} to="/podcast">PodCast</Nav.Link>
+              
               </>
             ) : (
               <>
                 <Nav.Link as={Link} to="/">Log In</Nav.Link>
                 <Nav.Link as={Link} to="/create-account">Create Account</Nav.Link>
-                
+                <Nav.Link as={Link} to="/podcast">PodCast</Nav.Link>
               </>
             )}
           </Nav>

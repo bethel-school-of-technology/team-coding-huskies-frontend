@@ -1,11 +1,14 @@
 import { useState, useContext, useEffect } from "react";
-import { Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import PlayerContext from "../contexts/PlayerContext";
+import UserContext from "../contexts/UserContext";
 
 
 function PodcastDetail() {
-  const {getPodcast } = useContext(PlayerContext);
+  const {getPodcast, deletePodcast} = useContext(PlayerContext);
+  const navigate = useNavigate();
+  const { isAuthenticated } = useContext(UserContext);
   const [podcast, setPodcast] = useState({});
   let params = useParams();
   let id = params.id
@@ -19,7 +22,10 @@ function PodcastDetail() {
     }
     fetch();
   }, [id]);
-
+  function handleDeletePodcast(id) {
+    deletePodcast(id)
+    navigate('/podcast')
+  };
 
     return ( 
         <div>
@@ -36,6 +42,16 @@ function PodcastDetail() {
             
            
       </Card.Body>
+      {isAuthenticated ? (
+                    <Button onClick={() => handleDeletePodcast(podcast.id)}
+                    style={{ width: '10rem', height: '3rem', position: 'right' }} className="delete-button-color"
+                    variant="danger"
+
+                    >Delete</Button>
+                ):(
+                  <>
+                  </>
+                )}
     </Card>
         </div>
      );

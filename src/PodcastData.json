@@ -11,6 +11,12 @@
       "password": "$2a$10$3.2107dTTAO3zdOjrU8JDessDO/tfceklfTj.0FDH4b30rxUWRfT.",
       "username": " test",
       "id": 2
+    },
+    {
+      "email": "keysmash@testing.com",
+      "password": "$2a$10$tWskww7tGDxwkFWvwEWK9uXNCPCditIEO60qpo65DMuoaS7iMl0Mm",
+      "username": "keysmash",
+      "id": 3
     }
   ],
   "podcasts": [
@@ -30,19 +36,7 @@
       "title": "test",
       "description": "test",
       "podcastLink": "Hello",
-      "id": 2
-    },
-    {
-      "title": "test",
-      "description": "test",
-      "podcastLink": "Hello",
       "id": 3
-    },
-    {
-      "title": "test",
-      "description": "test",
-      "podcastLink": "Hello",
-      "id": 6
     },
     {
       "title": "test",
@@ -73,12 +67,6 @@
       "title": "Sustaining a life of worship and prayer",
       "description": "The Pueblo Incense House of Prayer's \"Intimacy/Urgency\" study. Each week we bring you deep, passionate, and inspiring Bible content related to: 1) growing in intimacy with God through understanding the Song of Solomon 2) Understanding the urgency of the hour in which we live by developing a Biblical approach to the end times.",
       "podcastLink": "https://www.buzzsprout.com/1832723/9938445-breaking-down-scriptures-that-speak-about-the-rapture-of-the-church"
-    },
-    {
-      "id": 12,
-      "title": "https://www.buzzsprout.com/816643/13630334-scott-reads-reviews-to-his-wife-during-the-great-far-aim-podcast-break-of-2023-1?client_source=small_player&iframe=true\" ",
-      "description": " Scott Reads Reviews To His Wife During The Great FAR AIM Podcast Break Of 2023",
-      "podcastLink": "Wife Reviews"
     },
     {
       "id": 13,

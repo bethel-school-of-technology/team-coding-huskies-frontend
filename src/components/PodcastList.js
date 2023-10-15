@@ -48,6 +48,7 @@ function PodcastList() {
   const handleSelectPodcast = (podcast) => {
     navigate(`/podcast/detail/${podcast.id}`);
   };
+  
 
   return (
     <div>
@@ -80,6 +81,7 @@ function PodcastList() {
                 onClick={() => handleSelectPodcast(podcast)}
                 style={{ width: '10rem', height: '3rem', position: 'right' }} className="button-color"
                 >Go to Podcast</Button>
+                
                 </Card>
             </ListGroup.Item>
           ))}
