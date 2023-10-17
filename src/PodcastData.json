@@ -17,92 +17,38 @@
       "password": "$2a$10$tWskww7tGDxwkFWvwEWK9uXNCPCditIEO60qpo65DMuoaS7iMl0Mm",
       "username": "keysmash",
       "id": 3
+    },
+    {
+      "email": "gonzalesjaycob@yahoo.com",
+      "password": "$2a$10$NbPYc0.gOhTYGkf.k/svZe5iItWZZ5azzhCkZkeGa1erVjp5AE9US",
+      "username": "Jaycob",
+      "id": 4
     }
   ],
   "podcasts": [
     {
-      "id": 0,
-      "title": "La Sportiva Miura VS Climbing Shoes",
-      "description": "Shoes with an arc to help climb in tough places",
-      "podcastLink": "https://www.rei.com/media/82db734f-15a5-4c03-8559-21073723e416.jpg?size=784x588"
-    },
-    {
-      "title": "fhdfg",
-      "description": "zsdf",
-      "podcastLink": "https://www.buzzsprout.com/816643/13630371-scott-reads-reviews-to-his-wife-during-the-great-far-aim-podcast-break-of-2023-2?client_source=small_player&iframe=true",
-      "id": 1
-    },
-    {
-      "title": "test",
-      "description": "test",
-      "podcastLink": "Hello",
+      "title": "Jesus 7 Letters to the 7 Churches Intro",
+      "description": "Each week we bring you deep, passionate, and inspiring Bible content related to: 1) growing in intimacy with God through understanding the Song of Solomon 2) Understanding the urgency of the hour in which we live by developing a Biblical approach to the end times. ",
+      "podcastLink": "https://www.buzzsprout.com/1832723/13674258-jesus-7-letters-to-the-7-churches-introduction?client_source=small_player&iframe=true",
       "id": 3
     },
     {
-      "title": "test",
-      "description": "test",
-      "podcastLink": "Hello",
-      "id": 7
+      "id": 19,
+      "title": "Study of the Book of Daniel- End Times",
+      "description": "Studying the prophecies of Daniel and the end time implications. ",
+      "podcastLink": "https://www.buzzsprout.com/1832723/13365731-studies-in-the-book-of-daniel-the-final-days-of-this-age?client_source=small_player&iframe=true"
     },
     {
-      "title": "test",
-      "description": "test",
-      "podcastLink": "Hello",
-      "id": 8
+      "id": 20,
+      "title": "Song of Solomon 4:16-5:1",
+      "description": "A study through the Song of Solomon.",
+      "podcastLink": "https://www.buzzsprout.com/1832723/12455238-song-of-solomon-4-16-5-1?client_source=small_player&iframe=true"
     },
     {
-      "id": 9,
-      "title": "Here is the title",
-      "description": "This is awesome",
-      "podcastLink": "this is the link"
-    },
-    {
-      "id": 10,
-      "title": "there",
-      "description": "general kenobi",
-      "podcastLink": "Hello"
-    },
-    {
-      "id": 11,
-      "title": "Sustaining a life of worship and prayer",
-      "description": "The Pueblo Incense House of Prayer's \"Intimacy/Urgency\" study. Each week we bring you deep, passionate, and inspiring Bible content related to: 1) growing in intimacy with God through understanding the Song of Solomon 2) Understanding the urgency of the hour in which we live by developing a Biblical approach to the end times.",
-      "podcastLink": "https://www.buzzsprout.com/1832723/9938445-breaking-down-scriptures-that-speak-about-the-rapture-of-the-church"
-    },
-    {
-      "id": 13,
-      "title": "Wife reviews",
-      "description": "Scott reads reviews to his wife. ",
-      "podcastLink": "https://www.buzzsprout.com/1832723/9938445-breaking-down-scriptures-that-speak-about-the-rapture-of-the-church"
-    },
-    {
-      "id": 14,
-      "title": "Wife Reviews",
-      "description": "Scott reads reviews to his wife. ",
-      "podcastLink": "https://www.buzzsprout.com/816643/13630334-scott-reads-reviews-to-his-wife-during-the-great-far-aim-podcast-break-of-2023-1?client_source=small_player&iframe=true\""
-    },
-    {
-      "id": 15,
-      "title": "sfsdf",
-      "description": "sdfds",
-      "podcastLink": "Hello"
-    },
-    {
-      "id": 16,
-      "title": "PIHOP Teaching",
-      "description": "description",
-      "podcastLink": "pihop link"
-    },
-    {
-      "id": 17,
-      "title": "asdf",
-      "description": "asdf",
-      "podcastLink": "asdf"
-    },
-    {
-      "id": 18,
-      "title": "asdf",
-      "description": "asdf",
-      "podcastLink": "asdf"
+      "id": 21,
+      "title": "Introduction to Worship with the Word",
+      "description": "Josh Floyd teaches begins to teach how to worship with the word in a harp and bowl model. ",
+      "podcastLink": "https://www.buzzsprout.com/1832723/13703203-introduction-to-worship-with-the-word?client_source=small_player&iframe=true"
     }
   ]
 }
